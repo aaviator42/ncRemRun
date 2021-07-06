@@ -1,0 +1,5 @@
+linguist-language=Batchfile
+*.txt eol=crlf
+*.cmd eol=crlf
+*.html eol=crlf
+*.bat eol=crlf
