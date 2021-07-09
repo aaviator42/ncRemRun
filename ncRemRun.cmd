@@ -1,6 +1,12 @@
 @echo off
-
 ::ncRemRun by @aaviator42
+title ncRemRun by @aaviator42
+
+setlocal enabledelayedexpansion
+
+
+
+echo ncRemRun by @aaviator42
 
 :main
 
@@ -28,14 +34,14 @@ if "%req%" == "null" (
 )
 
 set reqPrev=%req%
-echo Request recieved: %req%
+echo Request recieved: !req!
 
-powershell -c "Add-Type -AN System.Web; [System.Web.HttpUtility]::UrlDecode('%req%')" > comx.txt
+powershell -c "Add-Type -AN System.Web; [System.Web.HttpUtility]::UrlDecode(\"%req%\")" > comx.txt
 
 set /p com=<comx.txt
-if not "%com%" == "" (
-echo Command recieved: %com%
-%com%
+if not "!com!" == "" (
+echo Command recieved: !com!
+!com!
 )
 
 goto :main

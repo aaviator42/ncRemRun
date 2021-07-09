@@ -14,7 +14,9 @@ set b=%*
 setlocal enabledelayedexpansion
 for /f "delims=" %%A in ("%a%") do set b=!b:%%A =!
 
-call :psd \"%a%/%b%\"
+set "b=!b:&=%%%%26!"
+echo !b!
+call :psd \"!a!/!b!\"
 
 :psd
 powershell wget %* -UseBasicParsing -OutFile nulx.txt >nul
